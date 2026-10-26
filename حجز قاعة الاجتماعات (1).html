@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حجز قاعة الاجتماعات</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f4f6f8;--card:#fff;--tx:#1b2430;--mu:#667085;--ac:#1f5f8b;--acx:#fff;--bd:#dde3ea;--dg:#b42318;--dgb:#fdecea;--gd:#12805c;--gdb:#e8f3ec;--hl:#fff7e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181d;--card:#1d242c;--tx:#e8edf2;--mu:#9aa6b2;--ac:#5aa6d8;--acx:#10202c;--bd:#2c3641;--dg:#f97066;--dgb:#3b1d1a;--gd:#4cc38a;--gdb:#1d3326;--hl:#3a3216}}
+:root[data-theme="dark"]{--bg:#14181d;--card:#1d242c;--tx:#e8edf2;--mu:#9aa6b2;--ac:#5aa6d8;--acx:#10202c;--bd:#2c3641;--dg:#f97066;--dgb:#3b1d1a;--gd:#4cc38a;--gdb:#1d3326;--hl:#3a3216}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:16px}
+.row{display:flex;flex-wrap:wrap;margin:-6px}.row>*{padding:6px;flex:0 0 100%;max-width:100%}
+@media(min-width:768px){.col-md-6{flex:0 0 50%;max-width:50%}.col-md-4{flex:0 0 33.333%;max-width:33.333%}.col-md-3{flex:0 0 25%;max-width:25%}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;height:100%}
+.card-header{padding:10px 14px;border-bottom:1px solid var(--bd);font-weight:700;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.card-body{padding:14px}.card-footer{padding:8px 14px;border-top:1px solid var(--bd);text-align:start}
+.card.border-danger{border:2px solid var(--dg)}.card.border-danger .card-header{background:var(--dgb);color:var(--dg)}
+.mb{margin-bottom:16px}
+.form-label{display:block;font-size:13px;color:var(--mu);margin-bottom:3px}
+.form-control{width:100%;padding:9px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+.btn{font:inherit;cursor:pointer;border:1px solid transparent;border-radius:8px;padding:8px 16px;font-weight:600}
+.btn-primary{background:var(--ac);color:var(--acx)}
+.btn-outline-danger{background:transparent;color:var(--dg);border-color:var(--dg);padding:3px 10px;font-weight:400;font-size:13px}
+.btn-outline-secondary{background:transparent;color:var(--tx);border-color:var(--bd);padding:6px 12px;font-weight:400;font-size:13px}
+.btn-outline-secondary.on{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:20px;background:var(--bd);color:var(--tx);font-weight:600}
+.bg-danger{background:var(--dg);color:#fff}.bg-primary{background:var(--ac);color:var(--acx)}
+.alert{padding:10px 14px;border-radius:8px;margin-top:10px;font-size:14px}
+.alert-danger{background:var(--dgb);color:var(--dg);border:1px solid var(--dg)}.alert-success{background:var(--gdb);color:var(--gd)}
+.grp{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin:18px 0 6px;padding:6px 10px;border-radius:8px;background:var(--ac);color:var(--acx);font-weight:700}
+.grp .badge{background:rgba(255,255,255,.25);color:inherit}
+.time{font-weight:700;color:var(--ac)}.mu{color:var(--mu);font-size:13px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+h1{font-size:22px;margin:4px 0 2px}h2{font-size:17px;margin:0}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+#ph{display:none}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.tabs .btn{flex:1;min-width:120px}.sec{display:none}.sec.on{display:block}
+@media print{
+:root{--bg:#fff;--card:#fff;--tx:#000;--mu:#444;--ac:#1f5f8b;--acx:#fff;--bd:#bbb;--dg:#b42318;--dgb:#fdecea}
+.no-print{display:none!important}#ph{display:block;text-align:center;margin-bottom:10px}
+.card{break-inside:avoid}.btn-outline-danger{display:none}.container{max-width:none;padding:0}
+.grp{background:#eee!important;color:#000!important;border:1px solid #999}.grp .badge{background:#ddd!important}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="no-print">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+<div><h1>🏛️ حجز قاعة الاجتماعات</h1><p class="mu" style="margin:0 0 14px">المديرية — اطّلع على المواعيد المحجوزة واطلب حجزاً</p></div>
+<span class="badge" id="role">…</span></div>
+<div class="tabs"><button class="btn btn-outline-secondary on" data-t="1">📅 جدول الحجوزات</button><button class="btn btn-outline-secondary" data-t="2">✉️ طلب حجز</button><button class="btn btn-outline-secondary" data-t="3" id="tab3">🔐 الأدمن</button></div>
+</div>
+
+<div class="sec on" id="s1">
+<div class="card mb no-print" style="height:auto"><div class="card-header"><h2>عرض وتقارير الحجوزات</h2></div><div class="card-body">
+<div class="chips" style="margin-bottom:10px">
+<button class="btn btn-outline-secondary" data-r="day">اليوم</button>
+<button class="btn btn-outline-secondary" data-r="week">هذا الأسبوع</button>
+<button class="btn btn-outline-secondary" data-r="month">هذا الشهر</button>
+<button class="btn btn-outline-secondary" data-r="all">الكل</button></div>
+<div class="row">
+<div class="col-md-3"><label class="form-label">من تاريخ</label><input type="date" class="form-control" id="fd"></div>
+<div class="col-md-3"><label class="form-label">إلى تاريخ</label><input type="date" class="form-control" id="td"></div>
+<div class="col-md-3"><label class="form-label">التجميع حسب</label><select class="form-control" id="gb"><option value="month">الشهر</option><option value="week">الأسبوع</option><option value="day" selected>اليوم</option></select></div>
+<div class="col-md-3"><label class="form-label">بحث بالقسم</label><input class="form-control" id="fq" placeholder="اسم القسم..."></div>
+</div>
+<p style="margin:12px 0 0;display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" id="pr">🖨️ طباعة التقرير</button><button class="btn btn-outline-secondary" id="dl">⬇️ حفظ التقرير كملف</button></p>
+<div class="mu" id="note"></div>
+</div></div>
+<div id="report"><div id="ph"><h1>تقرير حجوزات قاعة الاجتماعات</h1><div id="phs"></div></div>
+<div class="stats" id="stats"></div><div id="list"></div></div>
+</div>
+
+<div class="sec no-print" id="s2">
+<div class="card mb" style="height:auto"><div class="card-header"><h2 id="ft">طلب حجز القاعة</h2></div><div class="card-body">
+<p class="mu" style="margin-top:0" id="fh">يُرسل الطلب إلى أدمن الصفحة للموافقة أو الرفض. بعد الإرسال ستحصل على رقم لمتابعة حالة طلبك.</p>
+<div class="row">
+<div class="col-md-6"><label class="form-label">اسم مقدّم الطلب *</label><input class="form-control" id="nm"></div>
+<div class="col-md-6"><label class="form-label">القسم الحاجز *</label><input class="form-control" id="dept" list="depts"></div>
+<div class="col-md-6"><label class="form-label">القسم المقدّم للاجتماع *</label><input class="form-control" id="pres" list="depts"></div>
+<div class="col-md-6"><label class="form-label">موضوع الاجتماع</label><input class="form-control" id="topic"></div>
+<div class="col-md-6"><label class="form-label">التاريخ *</label><input type="date" class="form-control" id="date"></div>
+<div class="col-md-6"><label class="form-label">من *</label><input type="time" class="form-control" id="from"></div>
+<div class="col-md-6"><label class="form-label">إلى *</label><input type="time" class="form-control" id="to"></div>
+</div>
+<datalist id="depts"></datalist><div id="msg"></div>
+<p style="margin:12px 0 0"><button class="btn btn-primary" id="save">إرسال الطلب</button></p>
+</div></div>
+<div class="card mb" style="height:auto"><div class="card-header"><h2>متابعة طلباتي</h2></div><div class="card-body">
+<div style="display:flex;gap:8px"><input class="form-control" id="code" placeholder="أدخل رقم الطلب"><button class="btn btn-outline-secondary" id="chk">تحقق</button></div>
+<div id="trk" style="margin-top:8px"></div></div></div>
+</div>
+
+<div class="sec no-print" id="s3"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let all=[],reqs=[],sts={},admin=false,bCol=null,rCol=null,sCol=null,tab=1;
+const p2=n=>String(n).padStart(2,"0");
+const iso=d=>d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate());
+const D=s=>new Date(s+"T12:00:00");
+const today=()=>iso(new Date());
+const addDays=(s,n)=>{const d=D(s);d.setDate(d.getDate()+n);return iso(d)};
+const wkStart=s=>addDays(s,-D(s).getDay());
+const fmtDay=s=>D(s).toLocaleDateString("ar",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+const fmtShort=s=>D(s).toLocaleDateString("ar",{day:"numeric",month:"long"});
+const fmtT=t=>{const[h,m]=t.split(":").map(Number);return ((h%12)||12)+":"+p2(m)+" "+(h>=12?"م":"ص")};
+const mins=b=>{const f=x=>x.split(":").reduce((a,v)=>a*60+ +v);return f(b.to)-f(b.from)};
+const hrs=m=>{const h=Math.floor(m/60),r=m%60;return h+" س"+(r?" "+r+" د":"")};
+const overlap=(a,b)=>a.date===b.date&&a.from<b.to&&a.to>b.from;
+const sortT=(a,b)=>(a.date+a.from).localeCompare(b.date+b.from);
+const conflictsOf=(b,list)=>list.filter(x=>x.id!==b.id&&overlap(b,x));
+const when=o=>fmtT(o.from)+" - "+fmtT(o.to);
+const lsGet=()=>{try{return JSON.parse(localStorage.getItem("mycodes")||"[]")}catch(e){return[]}};
+const lsAdd=c=>{try{localStorage.setItem("mycodes",JSON.stringify([c,...lsGet()].slice(0,20)))}catch(e){}};
+
+function showTab(n){tab=n;document.querySelectorAll(".sec").forEach(s=>s.classList.toggle("on",s.id==="s"+n));
+  document.querySelectorAll("[data-t]").forEach(b=>b.classList.toggle("on",b.dataset.t==n));if(n==3)renderAdmin();if(n==2)renderTrack()}
+document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>showTab(+b.dataset.t));
+
+function setRange(r){
+  const t=today();
+  if(r==="day"){$("fd").value=t;$("td").value=t}
+  else if(r==="week"){$("fd").value=wkStart(t);$("td").value=addDays(wkStart(t),6)}
+  else if(r==="month"){const d=D(t);$("fd").value=iso(new Date(d.getFullYear(),d.getMonth(),1));$("td").value=iso(new Date(d.getFullYear(),d.getMonth()+1,0))}
+  else{$("fd").value="";$("td").value=""}
+  render();
+}
+function card(b,others,extra){
+  const c=el("div","card"+(others.length?" border-danger":""));
+  const hd=el("div","card-header");hd.append(el("span","time",when(b)),others.length?el("span","badge bg-danger","⚠ تضارب"):el("span","badge",hrs(mins(b))));
+  const bd=el("div","card-body");bd.append(el("div","mu","📅 "+fmtDay(b.date)));
+  const r1=el("div");r1.append("القسم الحاجز: ",Object.assign(el("b"),{textContent:b.dept}));
+  const r2=el("div");r2.append("القسم المقدّم: ",Object.assign(el("b"),{textContent:b.pres}));
+  bd.append(r1,r2);if(b.topic)bd.append(el("div","mu","الموضوع: "+b.topic));
+  if(extra)extra(bd);
+  if(others.length)bd.append(el("div","alert alert-danger","⚠ يتعارض في نفس اليوم والوقت مع «"+others.map(o=>o.dept+" ("+when(o)+")").join("، ")+"»."));
+  c.append(hd,bd);return c;
+}
+function render(){
+  const fd=$("fd").value,td=$("td").value,q=$("fq").value.trim(),gb=$("gb").value;
+  const arr=all.filter(b=>(!fd||b.date>=fd)&&(!td||b.date<=td)&&(!q||(b.dept+" "+b.pres).includes(q))).sort(sortT);
+  const L=$("list");L.textContent="";
+  $("phs").textContent=((fd||td)?"الفترة: "+(fd?fmtDay(fd):"البداية")+" — "+(td?fmtDay(td):"بدون نهاية"):"الفترة: كل الحجوزات")+" | التجميع حسب: "+$("gb").selectedOptions[0].textContent;
+  const cf=arr.filter(b=>conflictsOf(b,all).length).length;
+  const S=$("stats");S.textContent="";
+  S.append(el("span","badge bg-primary","عدد الحجوزات: "+arr.length),el("span","badge","إجمالي المدة: "+hrs(arr.reduce((a,b)=>a+mins(b),0))));
+  if(cf)S.append(el("span","badge bg-danger","⚠ حجوزات متضاربة: "+cf));
+  if(!arr.length){L.append(el("div","mu","لا توجد حجوزات ضمن هذه الفترة"));}
+  const key=b=>gb==="month"?b.date.slice(0,7):gb==="week"?wkStart(b.date):b.date;
+  const label=k=>gb==="month"?D(k+"-01").toLocaleDateString("ar",{month:"long",year:"numeric"}):gb==="week"?"أسبوع من "+fmtShort(k)+" إلى "+fmtShort(addDays(k,6)):fmtDay(k)+(k===today()?" (اليوم)":"");
+  const groups={};arr.forEach(b=>(groups[key(b)]=groups[key(b)]||[]).push(b));
+  Object.keys(groups).sort().forEach(k=>{
+    const g=groups[k];const h=el("div","grp");h.append(el("span","",label(k)),el("span","badge",g.length+" حجز • "+hrs(g.reduce((a,b)=>a+mins(b),0))));
+    L.append(h);const row=el("div","row");
+    g.forEach(b=>{const w=el("div","col-md-6");const c=card(b,conflictsOf(b,all));
+      if(admin&&bCol){const f=el("div","card-footer");const x=el("button","btn btn-outline-danger","إلغاء الحجز");
+        x.onclick=async()=>{if(confirm("إلغاء هذا الحجز؟"))try{await bCol.doc(b.id).delete()}catch(e){alert("تعذّر الإلغاء")}};f.append(x);c.append(f)}
+      w.append(c);row.append(w)});
+    L.append(row);
+  });
+  const ds=$("depts");ds.textContent="";[...new Set(all.flatMap(b=>[b.dept,b.pres]))].forEach(n=>{const o=el("option");o.value=n;ds.append(o)});
+}
+function msg(t,c){const m=$("msg");m.textContent=t;m.className=t?"alert "+c:""}
+const readForm=()=>({nm:$("nm").value.trim(),dept:$("dept").value.trim(),pres:$("pres").value.trim(),topic:$("topic").value.trim(),date:$("date").value,from:$("from").value,to:$("to").value});
+function liveCheck(){
+  const b=readForm();if(!b.date||!b.from||!b.to||b.to<=b.from){msg("");return null}
+  const c=conflictsOf({...b,id:"_"},all);
+  if(c.length){msg("⚠ تضارب في المواعيد: القاعة محجوزة في نفس اليوم والوقت لصالح «"+c.map(o=>o.dept+" ("+when(o)+")").join("، ")+"». اختر وقتاً آخر.","alert-danger");return c}
+  msg("");return null;
+}
+["date","from","to"].forEach(i=>$(i).addEventListener("change",liveCheck));
+const rid=()=>Array.from(crypto.getRandomValues(new Uint8Array(6)),x=>"abcdefghjkmnpqrstuvwxyz23456789"[x%31]).join("");
+$("save").onclick=async()=>{
+  const b=readForm();
+  if(!b.nm||!b.dept||!b.pres||!b.date||!b.from||!b.to)return msg("يرجى تعبئة الحقول المطلوبة (*)","alert-danger");
+  if(b.to<=b.from)return msg("وقت النهاية يجب أن يكون بعد وقت البداية","alert-danger");
+  if(b.date<today())return msg("لا يمكن الحجز في تاريخ سابق","alert-danger");
+  if(liveCheck())return;
+  try{
+    if(admin){await bCol.add({dept:b.dept,pres:b.pres,topic:b.topic,date:b.date,from:b.from,to:b.to,at:Date.now()});msg("تمت إضافة الحجز مباشرة ✓","alert-success")}
+    else{const code=rid();await rCol.doc(code).set({...b,at:Date.now()});lsAdd({code,s:b.dept+" — "+fmtShort(b.date)+" "+when(b)});
+      msg("تم إرسال طلبك للأدمن ✓ رقم طلبك: "+code+" (احتفظ به لمتابعة الحالة)","alert-success");renderTrack()}
+    ["topic","from","to"].forEach(i=>$(i).value="");
+  }catch(e){msg("تعذّر إرسال الطلب، حاول مرة أخرى","alert-danger")}
+};
+function stLine(code){const s=sts[code];
+  if(!s)return el("span","badge","⏳ قيد المراجعة (أو الرقم غير صحيح)");
+  const b=el("span","badge "+(s.st==="approved"?"bg-primary":"bg-danger"),s.st==="approved"?"✅ تمت الموافقة":"❌ مرفوض"+(s.note?" — "+s.note:""));return b}
+function renderTrack(){const T=$("trk");T.textContent="";
+  const c=$("code").value.trim();if(c){const r=el("div","");r.append(el("b","",c+" : "),stLine(c));T.append(r)}
+  lsGet().forEach(x=>{const r=el("div","mu");r.style.marginTop="6px";r.append(x.s+" ["+x.code+"] ",stLine(x.code));T.append(r)})}
+$("chk").onclick=renderTrack;
+
+function renderAdmin(){
+  const P=$("s3");P.textContent="";
+  if(!admin){const c=el("div","alert alert-danger","هذه الصفحة مخصصة لأدمن الصفحة. سجّل الدخول بحسابك المخوّل (مالك الصفحة أو محرّر) ثم أعد تحميل الصفحة.");P.append(c);return}
+  const h=el("div","card-header");h.append(el("h2","","📥 طلبات الحجز بانتظار القرار"),el("span","badge bg-primary",String(reqs.length)));
+  const w=el("div","card mb");w.style.height="auto";const bd=el("div","card-body");w.append(h,bd);P.append(w);
+  if(!reqs.length)bd.append(el("div","mu","لا توجد طلبات جديدة"));
+  const row=el("div","row");bd.append(row);
+  [...reqs].sort(sortT).forEach(r=>{
+    const col_=el("div","col-md-6");
+    const others=[...conflictsOf({...r,id:"_"},all),...conflictsOf(r,reqs).map(o=>({...o,dept:o.dept+" (طلب معلّق)"}))];
+    const c=card(r,others,b=>{b.append(el("div","mu","مقدّم الطلب: "+r.nm))});
+    const f=el("div","card-footer");f.style.display="flex";f.style.gap="8px";
+    const ok=el("button","btn btn-primary","✓ موافقة");ok.style.padding="4px 14px";
+    ok.onclick=async()=>{
+      if(conflictsOf({...r,id:"_"},all).length)return alert("لا يمكن الموافقة: يوجد تضارب مع حجز معتمد.");
+      try{await bCol.add({dept:r.dept,pres:r.pres,topic:r.topic||"",date:r.date,from:r.from,to:r.to,at:Date.now()});
+        await sCol.doc(r.id).set({st:"approved",at:Date.now()});await rCol.doc(r.id).delete()}catch(e){alert("تعذّر التنفيذ")}};
+    const no=el("button","btn btn-outline-danger","✕ رفض");
+    no.onclick=async()=>{const n=prompt("سبب الرفض (اختياري):");if(n===null)return;
+      try{await sCol.doc(r.id).set({st:"rejected",note:n.trim(),at:Date.now()});await rCol.doc(r.id).delete()}catch(e){alert("تعذّر التنفيذ")}};
+    f.append(ok,no);c.append(f);col_.append(c);row.append(col_)});
+  const n=el("div","mu","لإضافة حجز مباشر دون موافقة: افتح تبويب «طلب حجز» (يعمل كإضافة فورية عند دخولك كأدمن). ولإلغاء حجز معتمد استخدم تبويب «جدول الحجوزات».");P.append(n);
+}
+function afterData(){render();$("tab3").textContent="🔐 الأدمن"+(admin&&reqs.length?" ("+reqs.length+")":"");
+  if(tab===3)renderAdmin();if(tab===2)renderTrack()}
+document.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>setRange(b.dataset.r));
+["fd","td","gb"].forEach(i=>$(i).onchange=render);$("fq").oninput=render;
+$("pr").onclick=()=>{try{window.print()}catch(e){}};
+$("dl").onclick=async()=>{
+  try{const d=await claude.use("downloads");if(!d)return alert("الحفظ غير متاح هنا");
+    const html='<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>تقرير الحجوزات</title><style>'+document.querySelector("style").textContent+'#ph{display:block;text-align:center}.btn-outline-danger{display:none}</style></head><body><div class="container">'+$("report").innerHTML+'</div></body></html>';
+    await d.save({filename:"تقرير-حجوزات-القاعة.html",data:html})}catch(e){}
+};
+$("date").value=today();setRange("month");
+(async()=>{
+  let db=null,u=null;
+  try{db=await claude.use("db");u=await claude.use("user")}catch(e){}
+  try{admin=!!u&&((await u.canEdit())||(await u.isOwner()))}catch(e){}
+  $("role").textContent=admin?"👤 أدمن الصفحة":"👤 زائر";
+  if(admin)$("fh").textContent="بصفتك أدمن: الإرسال هنا يضيف الحجز مباشرة دون موافقة.",$("save").textContent="إضافة الحجز مباشرة";
+  if(!db){$("note").textContent="التخزين المشترك غير متاح حالياً.";afterData();return}
+  bCol=db.collection("bookings");rCol=db.collection("requests");sCol=db.collection("statuses");
+  bCol.onSnapshot(s=>{all=s.docs.map(d=>({id:d.id,...d.data()}));afterData()},()=>{$("note").textContent="تعذّر تحميل الحجوزات"});
+  sCol.onSnapshot(s=>{sts={};s.docs.forEach(d=>sts[d.id]=d.data());afterData()},()=>{});
+  if(admin)rCol.onSnapshot(s=>{reqs=s.docs.map(d=>({id:d.id,...d.data()}));afterData()},()=>{});
+})();
+</script>
+</body>
+</html>
